@@ -15,4 +15,4 @@ test:
         - mkdir -p $CIRCLE_TEST_REPORTS/nose/
         - mv nosetests.xml $CIRCLE_TEST_REPORTS/nose/
         - mv dist $CIRCLE_ARTIFACTS
-        - mv cover $CIRCLE_ARTIFACTS
+        # - mv cover $CIRCLE_ARTIFACTS
