@@ -1,0 +1,18 @@
+machine:
+    python:
+        version: '2.7.10'
+    timezone: Asia/Tokyo
+    environment:
+        TOX_PY27: '2.7.10'
+
+test:
+    override:
+        - nosetests --verbosity=2 --nocapture --with-xunit --with-coverage --cover-erase --cover-package=kir --all-modules --cover-branches
+        - python setup.py bdist_wheel
+
+    post:
+        # - coveralls
+        - mkdir -p $CIRCLE_TEST_REPORTS/nose/
+        - mv nosetests.xml $CIRCLE_TEST_REPORTS/nose/
+        - mv dist $CIRCLE_ARTIFACTS
+        - mv cover $CIRCLE_ARTIFACTS
