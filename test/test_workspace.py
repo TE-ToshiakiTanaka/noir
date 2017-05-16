@@ -16,6 +16,17 @@ class TestWorkspace(object):
         cls.workspace.rmdir("")
 
     @with_setup(setup, teardown)
+    @raises(WorkspaceError)
+    def test_workspace_failed_01(self):
+        test_fail_path = 1
+        workspace = Workspace(test_fail_path)
+
+    @with_setup(setup, teardown)
+    def test_workspace_success_01(self):
+        test_fail_path = os.path.join("tmp")
+        workspace = Workspace(test_fail_path, clear=True)
+
+    @with_setup(setup, teardown)
     def test_workspace_mkdir_success_01(self):
         reference = os.path.join(self.workspace.root(), "test01")
         result = self.workspace.mkdir("test01")
