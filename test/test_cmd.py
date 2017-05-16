@@ -33,6 +33,13 @@ def test_cmd_run_bg_success_02():
         ok_(True)
     except: ok_(False)
 
+@with_setup(setup, teardown)
+def test_cmd_run_bg_success_01():
+    try:
+        result = cmd.run_bg("ls", debug=True)
+        ok_(True)
+    except: ok_(False)
+
 
 @with_setup(setup, teardown)
 def test_cmd_run_failed_01():
@@ -44,6 +51,14 @@ def test_cmd_run_failed_01():
 def test_cmd_run_failed_02():
     result = cmd.run("hoge")
     eq_(result[0], 1)
+
+@with_setup(setup, teardown)
+def test_cmd_run_bg_failed_01():
+    try:
+        result = cmd.run_bg("ls -la | wc -l")
+        ok_(False)
+    except: ok_(True)
+
 
 @with_setup(setup, teardown)
 @timed(2.2)
