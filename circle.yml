@@ -4,6 +4,12 @@ machine:
     timezone: Asia/Tokyo
     environment:
         TOX_PY27: '2.7.10'
+        COVERALLS_REPO_TOKEN: jimitS6EkyF6jSPk8o9v6Px8K4EeiYrfd
+
+dependencies:
+    pre:
+        - pip -V
+        - pip install -U -r requirements.txt
 
 test:
     override:
@@ -11,7 +17,7 @@ test:
         - python setup.py bdist_wheel
 
     post:
-        # - coveralls
+        - coveralls
         - mkdir -p $CIRCLE_TEST_REPORTS/nose/
         - mv nosetests.xml $CIRCLE_TEST_REPORTS/nose/
         - mv dist $CIRCLE_ARTIFACTS
