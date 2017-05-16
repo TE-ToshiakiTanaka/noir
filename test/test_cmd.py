@@ -14,6 +14,27 @@ def test_cmd_run_success_01():
     eq_(result[0], 0)
 
 @with_setup(setup, teardown)
+def test_cmd_run_success_02():
+    result = cmd.run("ls", debug=True)
+    eq_(result[0], 0)
+
+@with_setup(setup, teardown)
+def test_cmd_run_bg_success_01():
+    try:
+        result = cmd.run_bg("ls")
+        ok_(True)
+    except: ok_(False)
+
+@with_setup(setup, teardown)
+@timed(1.2)
+def test_cmd_run_bg_success_02():
+    try:
+        result = cmd.run_bg("sleep 2")
+        ok_(True)
+    except: ok_(False)
+
+
+@with_setup(setup, teardown)
 def test_cmd_run_failed_01():
     result = cmd.run('ls -la | wc -l')
     eq_(result[0], 2)

@@ -25,7 +25,7 @@ class ThreadWithReturn(threading.Thread):
         super(ThreadWithReturn, self).join(timeout=timeout)
         return self._return
 
-def run_bg(cmd, cwd=None, debug=False):
+def run_bg(cmd, cwd=None, debug=False, shell=False):
     if shell == False and type(cmd) in STRING_SET:
         cmd = [c for c in cmd.split() if c != '']
     if debug:
@@ -36,14 +36,14 @@ def run_bg(cmd, cwd=None, debug=False):
         proc = subprocess.Popen(cmd,
                                 cwd     = cwd,
                                 stdout  = subprocess.PIPE,
-                                stderr  = subprocess.PIPE)
+                                stderr  = subprocess.PIPE,
+                                shell   = shell)
         proc_thread = ThreadWithReturn(target=proc.communicate)
         proc_thread.daemon = True
         proc_thread.start()
     except OSError as e:
         raise RunError(cmd, None, message='Raise Exception : %s' % str(e))
-    returncode = proc.returncode
-    return (returncode)
+    return 0
 
 def run(cmd, cwd=None, timeout=300, debug=False, shell=False):
     if shell == False and type(cmd) in STRING_SET:
