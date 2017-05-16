@@ -82,3 +82,11 @@ class LogError(KirError):
                 'message': details
             }
         KirError.__init__(self, details)
+
+class WorkspaceError(KirError):
+    def __init__(self, details):
+        if type(details) in STRING_SET:
+            details = {
+                'message': details
+            }
+        KirError.__init__(self, details)
