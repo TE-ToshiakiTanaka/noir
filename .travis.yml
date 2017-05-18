@@ -3,12 +3,12 @@ git:
     submodules: false
 language: python
 python:
-    - '2.7'
-    - '3.4'
-    - '3.5'
-    - pypy
+- '2.7'
+- '3.4'
+- '3.5'
+- pypy
 before_install:
-    install:
-        - pip install -r requirements.txt
-    script:
-        - nosetests -v --with-xunit --with-coverage --cover-erase --cover-package=kir
+install:
+- pip install -r requirements.txt
+script:
+- nosetests -v --with-xunit --with-coverage --cover-erase --cover-package=kir
