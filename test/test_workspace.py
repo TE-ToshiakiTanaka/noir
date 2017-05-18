@@ -19,12 +19,15 @@ class TestWorkspace(object):
     @raises(WorkspaceError)
     def test_workspace_failed_01(self):
         test_fail_path = 1
-        workspace = Workspace(test_fail_path)
+        workspace = Workspace(test_fail_path, clear=True)
+        workspace.rm(test_fail_path)
 
     @with_setup(setup, teardown)
+    @raises(WorkspaceError)
     def test_workspace_success_01(self):
-        test_fail_path = os.path.join("tmp")
-        workspace = Workspace(test_fail_path, clear=True)
+        test_fail_path = os.path.join("test")
+        workspace = Workspace(test_fail_path)
+        workspace.rm(test_fail_path)
 
     @with_setup(setup, teardown)
     def test_workspace_mkdir_success_01(self):
