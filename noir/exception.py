@@ -1,19 +1,19 @@
 import sys
 import traceback
 
-from kir import STRING_SET
+from noir import STRING_SET
 
-class KirError(Exception):
+class NoirError(Exception):
     details = None # {<string>:<base type>, ... }
 
     def __init__(self, details):
         if not type(details) == dict:
-            raise Exception('KirError : details must be a dictionary.')
+            raise Exception('NoirError : details must be a dictionary.')
         for key in details:
             if type(key) not in STRING_SET:
-                raise Exception('KirError : details key must be strings.')
+                raise Exception('NoirError : details key must be strings.')
         if 'message' not in details:
-            raise Exception('KirError : details must have message field.')
+            raise Exception('NoirError : details must have message field.')
         if 'type' not in details:
             details['type'] = type(self).__name__
         self.details = details
@@ -52,15 +52,15 @@ class KirError(Exception):
         sys.stderr.write(self.format_trace())
         sys.stderr.flush()
 
-class TimeoutError(KirError):
+class TimeoutError(NoirError):
     def __init__(self, details):
         if type(details) in STRING_SET:
             details = {
                 'message': details
             }
-        KirError.__init__(self, details)
+        NoirError.__init__(self, details)
 
-class RunError(KirError):
+class RunError(NoirError):
     def __init__(self, cmd, out, message=''):
         details = {
             'cmd'       : cmd     or '',
@@ -68,25 +68,25 @@ class RunError(KirError):
             'out'       : out     or '',
             'message'   : message or ''
         }
-        KirError.__init__(self, details)
+        NoirError.__init__(self, details)
 
     def __str__(self):
         return '%s:\n%s:\n%s' % (
             self.cmd, self.message, self.out
         )
 
-class LogError(KirError):
+class LogError(NoirError):
     def __init__(self, details):
         if type(details) in STRING_SET:
             details = {
                 'message': details
             }
-        KirError.__init__(self, details)
+        NoirError.__init__(self, details)
 
-class WorkspaceError(KirError):
+class WorkspaceError(NoirError):
     def __init__(self, details):
         if type(details) in STRING_SET:
             details = {
                 'message': details
             }
-        KirError.__init__(self, details)
+        NoirError.__init__(self, details)

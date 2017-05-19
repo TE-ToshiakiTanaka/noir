@@ -6,13 +6,13 @@ except ImportError:
     from io import StringIO
 from nose.tools import with_setup, raises, ok_, eq_
 
-from kir import log
-from kir.exception import *
+from noir import log
+from noir.exception import *
 
 class TestLog(object):
     @classmethod
     def setup(cls):
-        cls.LOG = log.Log("TEST.KIR")
+        cls.LOG = log.Log("TEST.NOIR")
         cls.original_logger = cls.LOG.logger
         cls.stream = StringIO()
         cls.log_handler = logging.StreamHandler(cls.stream)

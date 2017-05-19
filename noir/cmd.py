@@ -5,9 +5,9 @@ import errno
 import threading
 import subprocess
 
-from kir import STRING_SET
-from kir import PYTHON_VERSION
-from kir.exception import *
+from noir import STRING_SET
+from noir import PYTHON_VERSION
+from noir.exception import *
 
 if PYTHON_VERSION == 2:
     FileNotFoundError = IOError

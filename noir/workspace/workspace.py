@@ -4,9 +4,9 @@ import shutil
 import tempfile
 import datetime
 
-from kir import STRING_SET
-from kir.exception import *
-from kir.log import LOG as L
+from noir import STRING_SET
+from noir.exception import *
+from noir.log import LOG as L
 
 class Workspace(object):
     def __init__(self, path, clear=False):

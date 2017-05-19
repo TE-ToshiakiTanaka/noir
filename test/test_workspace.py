@@ -2,8 +2,8 @@ import os
 
 from nose.tools import with_setup, raises, ok_, eq_
 
-from kir.workspace import Workspace
-from kir.exception import *
+from noir.workspace import Workspace
+from noir.exception import *
 
 class TestWorkspace(object):
     @classmethod

@@ -3,7 +3,7 @@ import sys
 import logging
 import traceback
 
-from kir.exception import *
+from noir.exception import *
 
 BASE_FORMAT = '%(processName)s.%(name)s ( PID %(process)d ) : %(asctime)s - %(levelname)s - %(message)s'
 
@@ -91,4 +91,4 @@ class Log(object):
     def error(self, message): self.log('e', message)
     def critical(self, message): self.log('c', message)
 
-LOG = Log("System.KIR")
+LOG = Log("System.NOIR")

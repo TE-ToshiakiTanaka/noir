@@ -1,6 +1,6 @@
 from nose.tools import with_setup, raises, ok_, eq_, timed
-from kir import cmd
-from kir.exception import *
+from noir import cmd
+from noir.exception import *
 
 def setup():
     pass

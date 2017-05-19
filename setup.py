@@ -85,12 +85,12 @@ def find_package_data(
     return out
 
 
-PACKAGE = "kir"
-NAME = "kir"
+PACKAGE = "noir"
+NAME = "noir"
 DESCRIPTION = ""
 AUTHOR = "Toshiaki.Tanaka"
 AUTHOR_EMAIL = "Toshiaki.Tanaka@jp.sony.com"
-URL = "https://github.com/TE-ToshiakiTanaka/tercera"
+URL = "https://github.com/TE-ToshiakiTanaka/noir"
 VERSION = __import__(PACKAGE).__version__
 
 setup(

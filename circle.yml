@@ -13,7 +13,7 @@ dependencies:
 
 test:
     override:
-        - nosetests --verbosity=2 --nocapture --with-xunit --with-coverage --cover-erase --cover-package=kir --all-modules --cover-branches
+        - nosetests --verbosity=2 --nocapture --with-xunit --with-coverage --cover-erase --cover-package=noir --all-modules --cover-branches
         - python setup.py bdist_wheel
 
     post:
