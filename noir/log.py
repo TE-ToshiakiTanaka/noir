@@ -9,15 +9,15 @@ BASE_FORMAT = '%(processName)s.%(name)s ( PID %(process)d ) : %(asctime)s - %(le
 
 class LogLevel(object):
     LOG_LEVEL_MAP = {'d' : {'level': logging.DEBUG,
-                            'color': '\033[92m'},
+                            'color': '\033[92m '},
                      'i' : {'level': logging.INFO,
-                            'color': '\033[94m'},
+                            'color': '\033[94m '},
                      'w' : {'level': logging.WARNING,
-                            'color': '\033[93m'},
+                            'color': '\033[93m '},
                      'e' : {'level': logging.ERROR,
-                            'color': '\033[91m'},
+                            'color': '\033[91m '},
                      'c' : {'level': logging.CRITICAL,
-                            'color': '\033[95m'}
+                            'color': '\033[95m '}
                     }
     @classmethod
     def get_level_name(cls, level):
@@ -26,7 +26,7 @@ class LogLevel(object):
     @classmethod
     def get_ancii_string(cls, level, string):
         return '%s%s%s' % (cls.LOG_LEVEL_MAP[cls.verify_level(level)]
-                           ['color'], string, '\033[0m')
+                           ['color'], string, ' \033[0m')
 
     @classmethod
     def verify_level(cls, level):

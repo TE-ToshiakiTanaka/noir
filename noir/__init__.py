@@ -9,3 +9,5 @@ except:
 
 if PYTHON_VERSION == 3: STRING_SET = [bytes, str]
 else: STRING_SET = [str, unicode]
+
+from alize import adbkit

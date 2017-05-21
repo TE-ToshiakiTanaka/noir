@@ -90,3 +90,11 @@ class WorkspaceError(NoirError):
                 'message': details
             }
         NoirError.__init__(self, details)
+
+class AndroidError(NoirError):
+    def __init__(self, details):
+        if type(details) in STRING_SET:
+            details = {
+                'message' : details
+            }
+        NoirError.__init__(self, details)

@@ -2,3 +2,6 @@
 [submodule "noir/alize/vendor/minicap"]
 	path = noir/alize/vendor/minicap
 	url = git@github.com:openstf/minicap.git
+[submodule "noir/alize/vendor/RotationWatcher.apk"]
+	path = noir/alize/vendor/RotationWatcher.apk
+	url = git@github.com:openstf/RotationWatcher.apk.git

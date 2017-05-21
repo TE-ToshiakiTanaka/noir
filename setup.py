@@ -11,7 +11,7 @@ def read(filename):
 
 standard_exclude = ["*.py", "*.pyc", "*$py.class", "*~", ".*", "*.bak"]
 standard_exclude_directories = [
-    ".*", "CVS", "_darcs", "./build", "./dist", "EGG-INFO", "*.egg-info", "./test", "./doc", "./sample"
+    ".*", "CVS", "_darcs", "./build", "./dist", "EGG-INFO", "*.egg-info", "./test", "./doc", "./sample", "vendor"
 ]
 
 def find_package_data(
@@ -102,7 +102,7 @@ setup(
     author_email=AUTHOR_EMAIL,
     license="MIT",
     url=URL,
-    packages=find_packages(exclude=["test.*", "test", "doc.*", "doc", "sample.*", "sample"]),
+    packages=find_packages(exclude=["test.*", "test", "doc.*", "doc", "sample.*", "sample", "vendor"]),
     package_data=find_package_data(PACKAGE, only_in_packages=False),
     classifiers=[
         "Development Status :: 0.1 - Alpha",
